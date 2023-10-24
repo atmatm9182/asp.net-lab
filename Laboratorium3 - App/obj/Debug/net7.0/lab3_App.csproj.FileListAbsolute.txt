@@ -1,0 +1,91 @@
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/appsettings.Development.json
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/appsettings.json
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/lab3_App.staticwebassets.runtime.json
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/lab3_App
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/lab3_App.deps.json
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/lab3_App.runtimeconfig.json
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/lab3_App.dll
+/home/oleg/Downloads/Telegram Desktop/lab3/bin/Debug/net7.0/lab3_App.pdb
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.GeneratedMSBuildEditorConfig.editorconfig
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.AssemblyInfoInputs.cache
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.AssemblyInfo.cs
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.csproj.CoreCompileInputs.cache
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.MvcApplicationPartsAssemblyInfo.cache
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.RazorAssemblyInfo.cache
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.RazorAssemblyInfo.cs
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets/msbuild.lab3_App.Microsoft.AspNetCore.StaticWebAssets.props
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets/msbuild.build.lab3_App.props
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.lab3_App.props
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.lab3_App.props
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets.pack.json
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets.build.json
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/staticwebassets.development.json
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/scopedcss/bundle/lab3_App.styles.css
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/scopedcss/projectbundle/lab3_App.bundle.scp.css
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.dll
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/refint/lab3_App.dll
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.pdb
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/lab3_App.genruntimeconfig.cache
+/home/oleg/Downloads/Telegram Desktop/lab3/obj/Debug/net7.0/ref/lab3_App.dll
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.GeneratedMSBuildEditorConfig.editorconfig
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.AssemblyInfoInputs.cache
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.AssemblyInfo.cs
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.csproj.CoreCompileInputs.cache
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.MvcApplicationPartsAssemblyInfo.cache
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.RazorAssemblyInfo.cache
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.RazorAssemblyInfo.cs
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.dll
+/home/oleg/wsei/lab3/obj/Debug/net7.0/refint/lab3_App.dll
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.pdb
+/home/oleg/wsei/lab3/bin/Debug/net7.0/appsettings.Development.json
+/home/oleg/wsei/lab3/bin/Debug/net7.0/appsettings.json
+/home/oleg/wsei/lab3/bin/Debug/net7.0/lab3_App.staticwebassets.runtime.json
+/home/oleg/wsei/lab3/bin/Debug/net7.0/lab3_App
+/home/oleg/wsei/lab3/bin/Debug/net7.0/lab3_App.deps.json
+/home/oleg/wsei/lab3/bin/Debug/net7.0/lab3_App.runtimeconfig.json
+/home/oleg/wsei/lab3/bin/Debug/net7.0/lab3_App.dll
+/home/oleg/wsei/lab3/bin/Debug/net7.0/lab3_App.pdb
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets/msbuild.lab3_App.Microsoft.AspNetCore.StaticWebAssets.props
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets/msbuild.build.lab3_App.props
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.lab3_App.props
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.lab3_App.props
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets.pack.json
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets.build.json
+/home/oleg/wsei/lab3/obj/Debug/net7.0/staticwebassets.development.json
+/home/oleg/wsei/lab3/obj/Debug/net7.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/home/oleg/wsei/lab3/obj/Debug/net7.0/scopedcss/bundle/lab3_App.styles.css
+/home/oleg/wsei/lab3/obj/Debug/net7.0/scopedcss/projectbundle/lab3_App.bundle.scp.css
+/home/oleg/wsei/lab3/obj/Debug/net7.0/lab3_App.genruntimeconfig.cache
+/home/oleg/wsei/lab3/obj/Debug/net7.0/ref/lab3_App.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\appsettings.Development.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\appsettings.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\lab3_App.staticwebassets.runtime.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\lab3_App.exe
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\lab3_App.deps.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\lab3_App.runtimeconfig.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\lab3_App.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\bin\Debug\net7.0\lab3_App.pdb
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.csproj.AssemblyReference.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.AssemblyInfoInputs.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.AssemblyInfo.cs
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.csproj.CoreCompileInputs.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.MvcApplicationPartsAssemblyInfo.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.RazorAssemblyInfo.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.RazorAssemblyInfo.cs
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets\msbuild.lab3_App.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets\msbuild.build.lab3_App.props
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.lab3_App.props
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.lab3_App.props
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets.pack.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets.build.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\staticwebassets.development.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\scopedcss\bundle\lab3_App.styles.css
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\scopedcss\projectbundle\lab3_App.bundle.scp.css
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\refint\lab3_App.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.pdb
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\lab3_App.genruntimeconfig.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Laboratorium3 - App\obj\Debug\net7.0\ref\lab3_App.dll

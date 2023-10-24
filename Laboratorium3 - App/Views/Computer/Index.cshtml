@@ -1,0 +1,42 @@
+﻿@using lab3_App.Models
+@model Dictionary<int, Computer>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Lista komputerow</h1>
+<a class="btn btn-primary" asp-controller="Computer" asp-action="Create">Utworz nowy komputer</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Nazwa
+        </th>
+        <th>
+            Procesor
+        </th>
+        <th>
+            Akcje
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in @Model)
+        {
+            <tr>
+                <td>
+                    @item.Value.Name
+                </td>
+                <td>
+                    @item.Value.CPU
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="Computer" asp-action="Update" asp-route-id="@item.Key">Edytuj</a>
+                    <a class="btn btn-outline-info" asp-controller="Computer" asp-action="Details" asp-route-id="@item.Key">Szczegoly</a>
+                    <a class="btn btn-outline-danger" asp-controller="Computer" asp-action="Delete" asp-route-id="@item.Key">Usun</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

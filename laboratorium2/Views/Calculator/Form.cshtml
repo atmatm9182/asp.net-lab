@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<form action="Result" method="get">
+    <input type="number" name="x" step="0.0001"/>
+    <select name="operator">
+        <option value="add">+</option>
+        <option value="sub">-</option>
+        <option value="mul">&times;</option>
+        <option value="div">&divide;</option>
+    </select>
+    <input type="number" name="y" step="0.0001" />
+    <br />
+    <button type="submit">Oblicz</button>
+</form>

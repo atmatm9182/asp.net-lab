@@ -1,0 +1,40 @@
+﻿@using lab3_App.Models;
+@model Computer
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Edytuj komputer</h1>
+<form asp-controller="Computer" asp-action="Update" method="post">
+    <div class="mb-3">
+        <label asp-for="Name">Nazwa</label>
+        <input class = "form-control" asp-for="Name"/>
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="CPU">Procesor</label>
+        <input class="form-control" asp-for="CPU" />
+        <span class="text-danger" asp-validation-for="CPU"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="RAM">RAM</label>
+        <input class="form-control" asp-for="RAM" />
+        <span class="text-danger" asp-validation-for="RAM"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="GPU">GPU</label>
+        <input class="form-control" asp-for="GPU" />
+    </div>
+	    <div class="mb-3">
+        <label asp-for="Manufacturer">Producent</label>
+        <input class="form-control" asp-for="Manufacturer" />
+    </div>
+	    <div class="mb-3">
+        <label asp-for="ProductionDate">Data produkcji</label>
+        <input class="form-control" asp-for="ProductionDate" />
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Edytuj</button>
+    </div>
+</form>
