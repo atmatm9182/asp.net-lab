@@ -20,5 +20,9 @@ namespace lab3_App.Models
         public string? Phone { get; set; }
         [Display(Name = "Data urodzenia")]
         public DateTime? Birth { get; set; }
+
+        [HiddenInput] 
+        [Display(Name = "Został utworzony")]
+        public DateTime Created { get; set; }
     }
 }

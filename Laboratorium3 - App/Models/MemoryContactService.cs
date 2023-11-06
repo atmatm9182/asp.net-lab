@@ -3,11 +3,18 @@
     public class MemoryContactService : IContactService
     {
         private Dictionary<int, Contact> _contacts = new();
+        private readonly IDateTimeProvider _timeProvider;
+
+        public MemoryContactService(IDateTimeProvider timeProvider)
+        {
+            _timeProvider = timeProvider;
+        }
 
         public int Add(Contact contact)
         {
             int id = _contacts.Count != 0 ? _contacts.Keys.Max() : 0;
             contact.Id = id + 1;
+            contact.Created = _timeProvider.GetTime();
             _contacts.Add(contact.Id, contact);
             return contact.Id;
         }

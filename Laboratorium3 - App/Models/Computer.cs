@@ -22,4 +22,7 @@ public class Computer
     public string? Manufacturer { get; set; }
     [Display(Name = "Data produkcji")]
     public DateTime? ProductionDate { get; set; }
+    [HiddenInput]
+    [Display(Name = "Został utworzony")]
+    public DateTime Created { get; set; }
 }
