@@ -5,15 +5,21 @@ namespace lab3_App.Models;
 
 public class Computer
 {
-	[HiddenInput]
-	public int Id { get; set; }
-	[Required(ErrorMessage = "Musisz podac nazwe komputera")]
-	public string Name { get; set; }
-	[Required(ErrorMessage = "Musisz podac nazwe procesora")]
-	public string CPU { get; set; }
-	[Required(ErrorMessage = "Musisz podac ilosc RAMu")]
-	public float RAM { get; set; }
-	public string? GPU { get; set; }
-	public string? Manufacturer { get; set; }
-	public DateTime? ProductionDate { get; set; }
+    [HiddenInput]
+    public int Id { get; set; }
+    [Required(ErrorMessage = "Musisz podac nazwe komputera")]
+    [Display(Name = "Imię")]
+    public string Name { get; set; }
+    [Required(ErrorMessage = "Musisz podac nazwe procesora")]
+    [Display(Name = "Procesor")]
+    public string CPU { get; set; }
+    [Required(ErrorMessage = "Musisz podac ilosc RAMu")]
+    [Display(Name = "Pamięć")]
+    public float RAM { get; set; }
+    [Display(Name = "Karta graficzna")]
+    public string? GPU { get; set; }
+    [Display(Name = "Producent")]
+    public string? Manufacturer { get; set; }
+    [Display(Name = "Data produkcji")]
+    public DateTime? ProductionDate { get; set; }
 }

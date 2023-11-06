@@ -6,10 +6,34 @@
 @{
 }
 <h1>Czy na pewno chcesz usunac komputer?</h1>
-<h3>Nazwa</h3>
+
+<h2>@Html.DisplayNameFor(_ => Model.Name)</h2>
 <p>@Model.Name</p>
-<h3>Procesor</h3>
+
+<h2>@Html.DisplayNameFor(_ => Model.CPU)</h2>
 <p>@Model.CPU</p>
+
+<h2>@Html.DisplayNameFor(_ => Model.RAM)</h2>
+<p>@Model.RAM</p>
+
+@if (Model.GPU != null)
+{
+<h2>@Html.DisplayNameFor(_ => Model.GPU)</h2>
+<p>@Model.GPU</p>
+}
+
+@if (Model.Manufacturer != null)
+{
+<h2>@Html.DisplayNameFor(_ => Model.Manufacturer)</h2>
+<p>@Model.Manufacturer</p>
+}
+
+@if (Model.ProductionDate != null)
+{
+<h2>@Html.DisplayNameFor(_ => Model.ProductionDate)</h2>
+<p>@Model.ProductionDate</p>
+}
+
 <form asp-action="Delete">
     <input asp-for="Id" />
     <button class="btn btn-danger" type="submit">Tak</button>

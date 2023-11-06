@@ -57,7 +57,7 @@ namespace Laboratorium1.Controllers
             }
 
             ViewBag.Result = op switch
-            { 
+            {
                 "add" => x + y,
                 "sub" => x - y,
                 "div" => x / y,

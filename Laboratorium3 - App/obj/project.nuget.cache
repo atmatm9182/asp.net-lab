@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GOvsjbYv9poVJp7qB0xp5N00S9eIJyGVCoZ/EKqTqAncJu9x67hByhMq8pInSQUL7irLFmaq1VAn6h+Mznln+A==",
+  "dgSpecHash": "bl4wPT1dgScGFfx3Jwx2jSAa/uUlpOFr1ValH1RzfVbSfYi8A1rfJszGfrYTxDEJEMpUHwOjx27RFlhbWKAVUQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\oleh.kniaziev\\source\\repos\\Laboratorium1 ASP.NET\\Laboratorium3 - App\\lab3_App.csproj",
+  "projectFilePath": "/home/oleg/wsei/lab3/Laboratorium3 - App/lab3_App.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

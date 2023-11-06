@@ -8,26 +8,26 @@
 <h1>Dodaj kontakt</h1>
 <form asp-controller="Contact" asp-action="Create" method="post">
     <div class="mb-3">
-        <label asp-for="Name"/>
+        <label asp-for="Name"></label>
         <input class = "form-control" asp-for="Name"/>
         <span class="text-danger" asp-validation-for="Name"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Email" />
+        <label asp-for="Email"></label>
         <input class="form-control" asp-for="Email" />
         <span class="text-danger" asp-validation-for="Email"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Phone"/>
+        <label asp-for="Phone"></label>
         <input class="form-control" asp-for="Phone" />
         <span class="text-danger" asp-validation-for="Phone"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Birth"/>
+        <label asp-for="Birth"></label>
         <input class="form-control" asp-for="Birth" />
     </div>
     <div>
-        <label asp-for="Priority"/>
+        <label asp-for="Priority"></label>
         <div>
             <span asp-validation-for="Priority" class="text-danger"></span>
         </div>

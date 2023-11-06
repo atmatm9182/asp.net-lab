@@ -5,33 +5,33 @@
 *@
 @{
 }
-<h1>Szczegoly</h1>
+<h1>Szczegóły</h1>
 
-<h2>Nazwa</h2>
+<h2>@Html.DisplayNameFor(_ => Model.Name)</h2>
 <p>@Model.Name</p>
 
-<h2>Procesor</h2>
+<h2>@Html.DisplayNameFor(_ => Model.CPU)</h2>
 <p>@Model.CPU</p>
 
-<h2>Ilosc RAMu</h2>
+<h2>@Html.DisplayNameFor(_ => Model.RAM)</h2>
 <p>@Model.RAM</p>
 
-@if (@Model.GPU != null)
+@if (Model.GPU != null)
 {
-<h2>Karta graficzna</h2>
+<h2>@Html.DisplayNameFor(_ => Model.GPU)</h2>
 <p>@Model.GPU</p>
 }
 
-@if (@Model.Manufacturer != null)
+@if (Model.Manufacturer != null)
 {
-<h2>Producent</h2>
+<h2>@Html.DisplayNameFor(_ => Model.Manufacturer)</h2>
 <p>@Model.Manufacturer</p>
 }
 
-@if (@Model.ProductionDate != null)
+@if (Model.ProductionDate != null)
 {
-<h2>Data produkcji</h2>
+<h2>@Html.DisplayNameFor(_ => Model.ProductionDate)</h2>
 <p>@Model.ProductionDate</p>
 }
 
-<button class="btn btn-primary" asp-action="Index">Wroc</button>
+<a class="btn btn-primary" asp-action="Index">Wroc</a>

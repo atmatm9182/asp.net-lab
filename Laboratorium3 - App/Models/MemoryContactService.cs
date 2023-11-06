@@ -8,7 +8,7 @@
         {
             int id = _contacts.Count != 0 ? _contacts.Keys.Max() : 0;
             contact.Id = id + 1;
-            _contacts.Add(id, contact);
+            _contacts.Add(contact.Id, contact);
             return contact.Id;
         }
 

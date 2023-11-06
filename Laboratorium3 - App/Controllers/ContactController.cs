@@ -16,7 +16,7 @@ namespace lab3_App.Controllers
         {
             return View(_contactService.FindAll());
         }
-    
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -24,8 +24,8 @@ namespace lab3_App.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Contact model) 
-        { 
+        public IActionResult Create(Contact model)
+        {
             if (ModelState.IsValid)
             {
                 _contactService.Add(model);
@@ -37,7 +37,7 @@ namespace lab3_App.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            return View(_contacts[id]);
+            return View(_contactService.FindById(id));
         }
 
         [HttpPost]

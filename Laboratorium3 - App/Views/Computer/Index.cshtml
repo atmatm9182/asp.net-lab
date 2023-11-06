@@ -1,5 +1,5 @@
 ﻿@using lab3_App.Models
-@model Dictionary<int, Computer>
+@model List<Computer>
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -11,30 +11,30 @@
     <thead>
     <tr>
         <th>
-            Nazwa
+            @Html.DisplayNameFor(_ => Model.First().Name)
         </th>
         <th>
-            Procesor
+            @Html.DisplayNameFor(_ => Model.First().CPU)
         </th>
         <th>
-            Akcje
+            @Html.DisplayNameFor(_ => Model.First().RAM)
         </th>
     </tr>
     </thead>
     <tbody>
-        @foreach(var item in @Model)
+        @foreach(var item in Model)
         {
             <tr>
                 <td>
-                    @item.Value.Name
+                    @item.Name
                 </td>
                 <td>
-                    @item.Value.CPU
+                    @item.CPU
                 </td>
                 <td>
-                    <a class="btn btn-outline-primary" asp-controller="Computer" asp-action="Update" asp-route-id="@item.Key">Edytuj</a>
-                    <a class="btn btn-outline-info" asp-controller="Computer" asp-action="Details" asp-route-id="@item.Key">Szczegoly</a>
-                    <a class="btn btn-outline-danger" asp-controller="Computer" asp-action="Delete" asp-route-id="@item.Key">Usun</a>
+                    <a class="btn btn-outline-primary" asp-controller="Computer" asp-action="Update" asp-route-id="@item.Id">Edytuj</a>
+                    <a class="btn btn-outline-info" asp-controller="Computer" asp-action="Details" asp-route-id="@item.Id">Szczegoly</a>
+                    <a class="btn btn-outline-danger" asp-controller="Computer" asp-action="Delete" asp-route-id="@item.Id">Usun</a>
                 </td>
             </tr>
         }

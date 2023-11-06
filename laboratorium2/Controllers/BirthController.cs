@@ -12,7 +12,8 @@ namespace laboratorium2.Controllers
 
         public IActionResult Result(Birth model)
         {
-            if (!model.IsValid()) { 
+            if (!model.IsValid())
+            {
                 return View("Error");
             }
             return View(model);

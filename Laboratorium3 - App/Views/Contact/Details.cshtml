@@ -13,7 +13,7 @@
 <h2>Email</h2>
 <p>@Model.Email</p>
 
-@if (@Model.Phone != null)
+@if (Model.Phone != null)
 {
     <h2>Numer telefonu</h2>
     <p>@Model.Phone</p>
@@ -25,4 +25,4 @@
 <p>@Model.Birth</p>
 }
 
-<button class="btn btn-primary" asp-action="Index">Wroc</button>
+<a class="btn btn-primary" asp-action="Index">Wroc</a>
