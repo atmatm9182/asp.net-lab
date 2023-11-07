@@ -1,0 +1,14 @@
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.AssemblyInfo.cs
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.csproj.CoreCompileInputs.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\bin\Debug\net7.0\Data.deps.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\bin\Debug\net7.0\Data.runtimeconfig.json
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\bin\Debug\net7.0\Data.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\bin\Debug\net7.0\Data.pdb
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\refint\Data.dll
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.pdb
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\Data.genruntimeconfig.cache
+D:\Users\oleh.kniaziev\source\repos\Laboratorium1 ASP.NET\Data\obj\Debug\net7.0\ref\Data.dll

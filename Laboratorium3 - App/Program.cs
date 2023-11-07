@@ -1,3 +1,4 @@
+using Data;
 using lab3_App.Models;
 
 namespace lab3_App;
@@ -10,8 +11,9 @@ class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddDbContext<AppDbContext>();
         
-        builder.Services.AddSingleton<IContactService, MemoryContactService>();
+        builder.Services.AddTransient<IContactService, EFContactService>();
         builder.Services.AddSingleton<IComputerService, MemoryComputerService>();
         builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 

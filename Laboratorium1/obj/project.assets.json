@@ -8,24 +8,27 @@
     "net7.0": []
   },
   "packageFolders": {
-    "/home/oleg/.nuget/packages/": {}
+    "D:\\Users\\oleh.kniaziev\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/oleg/wsei/lab3/Laboratorium1/Laboratorium1.csproj",
+      "projectUniqueName": "D:\\Users\\oleh.kniaziev\\source\\repos\\Laboratorium1 ASP.NET\\Laboratorium1\\Laboratorium1.csproj",
       "projectName": "Laboratorium1",
-      "projectPath": "/home/oleg/wsei/lab3/Laboratorium1/Laboratorium1.csproj",
-      "packagesPath": "/home/oleg/.nuget/packages/",
-      "outputPath": "/home/oleg/wsei/lab3/Laboratorium1/obj/",
+      "projectPath": "D:\\Users\\oleh.kniaziev\\source\\repos\\Laboratorium1 ASP.NET\\Laboratorium1\\Laboratorium1.csproj",
+      "packagesPath": "D:\\Users\\oleh.kniaziev\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\oleh.kniaziev\\source\\repos\\Laboratorium1 ASP.NET\\Laboratorium1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/oleg/.nuget/NuGet/NuGet.Config"
+        "D:\\Users\\oleh.kniaziev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -62,7 +65,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/oleg/.dotnet/sdk/7.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }
