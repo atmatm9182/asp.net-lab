@@ -26,6 +26,7 @@ namespace lab3_App.Models
                 Email = entity.Email,
                 Birth = entity.Birth,
                 Priority = (Priority)entity.Priority,
+                OrganizationId = entity.OrganizationId,
             };
         }
     }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using lab3_App.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Data.Entities;
 
 namespace lab3_App.Controllers
 {
@@ -20,7 +22,19 @@ namespace lab3_App.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            List<SelectListItem> orgs = CreateSelectListItems();
+
+            return View(new Contact() { OrganizationList = orgs });
+        }
+
+        private List<SelectListItem> CreateSelectListItems()
+        {
+            return _contactService.FindAllOrganizations()
+                            .Select(e => new SelectListItem()
+                            {
+                                Text = e.Name,
+                                Value = e.Id.ToString(),
+                            }).Append(new SelectListItem() { Text = "Brak",  Value = ""}).ToList();
         }
 
         [HttpPost]
@@ -31,7 +45,8 @@ namespace lab3_App.Controllers
                 _contactService.Add(model);
                 return RedirectToAction("Index");
             }
-            return View();
+            model.OrganizationList = CreateSelectListItems();
+            return View(model);
         }
 
         [HttpGet]

@@ -36,6 +36,9 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("OrganizationId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
@@ -44,27 +47,125 @@ namespace Data.Migrations
 
                     b.HasKey("ContactId");
 
+                    b.HasIndex("OrganizationId");
+
                     b.ToTable("contacts");
 
                     b.HasData(
                         new
                         {
                             ContactId = 1,
-                            Birth = new DateTime(2000, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Birth = new DateTime(1999, 7, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "adam@wsei.edu.pl",
                             Name = "Adam",
-                            Phone = "127813268163",
-                            Priority = 0
+                            OrganizationId = 1,
+                            Phone = "28392834923",
+                            Priority = 2
                         },
                         new
                         {
                             ContactId = 2,
-                            Birth = new DateTime(1999, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Birth = new DateTime(2000, 1, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "ewa@wsei.edu.pl",
                             Name = "Ewa",
-                            Phone = "293443823478",
-                            Priority = 0
+                            OrganizationId = 2,
+                            Phone = "1239595599",
+                            Priority = 2
                         });
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("organizations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Uczelnia Wyższa",
+                            Name = "WSEI"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Przewoźnik kolejowy",
+                            Name = "PKP"
+                        });
+                });
+
+            modelBuilder.Entity("Data.Entities.ContactEntity", b =>
+                {
+                    b.HasOne("Data.Entities.OrganizationEntity", "Organization")
+                        .WithMany("Contacts")
+                        .HasForeignKey("OrganizationId");
+
+                    b.Navigation("Organization");
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.OwnsOne("Data.Models.Address", "Address", b1 =>
+                        {
+                            b1.Property<int>("OrganizationEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("OrganizationEntityId");
+
+                            b1.ToTable("organizations");
+
+                            b1.WithOwner()
+                                .HasForeignKey("OrganizationEntityId");
+
+                            b1.HasData(
+                                new
+                                {
+                                    OrganizationEntityId = 1,
+                                    City = "Kraków",
+                                    PostalCode = "31-150",
+                                    Street = "Św. Filipa 17"
+                                },
+                                new
+                                {
+                                    OrganizationEntityId = 2,
+                                    City = "Kraków",
+                                    PostalCode = "31-150",
+                                    Street = "Dworcowa 7"
+                                });
+                        });
+
+                    b.Navigation("Address")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
+                {
+                    b.Navigation("Contacts");
                 });
 #pragma warning restore 612, 618
         }

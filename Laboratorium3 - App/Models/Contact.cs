@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace lab3_App.Models
@@ -24,5 +25,9 @@ namespace lab3_App.Models
         [HiddenInput] 
         [Display(Name = "Został utworzony")]
         public DateTime Created { get; set; }
+
+        public int? OrganizationId { get; set; }
+
+        public List<SelectListItem> OrganizationList { get; set; }
     }
 }
