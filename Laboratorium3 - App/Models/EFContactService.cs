@@ -50,6 +50,14 @@ namespace lab3_App.Models
             return null;
         }
 
+        public PagingList<Contact> FindPage(int page, int size)
+        {
+            var p = PagingList<Contact>.Create(null, _context.Contacts.Count(), page, size);
+            var data = _context.Contacts.OrderBy(o => o.Name).Skip((p.Number - 1) * p.Size).Take(p.Size).Select(ContactMapper.FromEntity);
+            return PagingList<Contact>.Create(data.ToList(), _context.Contacts.Count(), page, size);
+
+        }
+
         public void Update(Contact contact)
         {
             _context.Contacts.Update(ContactMapper.ToEntity(contact));

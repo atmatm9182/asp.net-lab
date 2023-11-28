@@ -1,5 +1,7 @@
 using Data;
 using lab3_App.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace lab3_App;
 
@@ -8,10 +10,17 @@ class Program
     static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        // var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddRazorPages();
+        builder.Services.AddSession();
         builder.Services.AddDbContext<AppDbContext>();
+
+        builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddRoles<IdentityRole>()
+            .AddEntityFrameworkStores<AppDbContext>();
         
         builder.Services.AddTransient<IContactService, EFContactService>();
         builder.Services.AddSingleton<IComputerService, MemoryComputerService>();
@@ -31,8 +40,10 @@ class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-
+        app.UseAuthentication();
         app.UseAuthorization();
+        app.UseSession();
+        app.MapRazorPages();
 
         app.MapControllerRoute(
             name: "default",
