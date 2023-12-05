@@ -15,9 +15,10 @@ namespace lab3_App.Controllers
             _contactService = contactService;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
-            return View(_contactService.FindAll());
+            return View("Index", _contactService.FindAll());
         }
 
         [HttpGet]
@@ -83,7 +84,12 @@ namespace lab3_App.Controllers
         [HttpGet]
         public IActionResult Details(int id)
         {
-            return View(_contactService.FindById(id));
+            var user = _contactService.FindById(id);
+            if (user is null)
+            {
+                return NotFound(); 
+            }
+            return View(user);
         }
 
         public IActionResult CreateApi()

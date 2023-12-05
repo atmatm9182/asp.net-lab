@@ -28,6 +28,10 @@ namespace lab3_App.Models
 
         public Contact? FindById(int id)
         {
+            if(! _contacts.ContainsKey(id))
+            {
+                return null;
+            }
             return _contacts[id];
         }
 

@@ -39,6 +39,7 @@ class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 
+        app.UseMiddleware<LastVisitCookie>();
         app.UseRouting();
         app.UseAuthentication();
         app.UseAuthorization();
