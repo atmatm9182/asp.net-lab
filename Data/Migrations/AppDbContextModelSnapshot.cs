@@ -17,6 +17,64 @@ namespace Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
 
+            modelBuilder.Entity("Data.Entities.ComputerEntity", b =>
+                {
+                    b.Property<int>("ComputerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("CPU")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GPU")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Manufacturer")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("ProductionDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("RAM")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ComputerId");
+
+                    b.ToTable("computers");
+
+                    b.HasData(
+                        new
+                        {
+                            ComputerId = 1,
+                            CPU = "Intel Core i9-14900K",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GPU = "GeForce RTX 4090",
+                            Manufacturer = "DELL",
+                            Name = "Gaming computer",
+                            RAM = 32f
+                        },
+                        new
+                        {
+                            ComputerId = 2,
+                            CPU = "Intel Core i5",
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Manufacturer = "HP",
+                            Name = "Office computer",
+                            RAM = 8f
+                        });
+                });
+
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
                 {
                     b.Property<int>("ContactId")
@@ -135,8 +193,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "1f50c62b-d8a9-4d3f-9804-1c2f808bc718",
-                            ConcurrencyStamp = "1f50c62b-d8a9-4d3f-9804-1c2f808bc718",
+                            Id = "3014c079-1210-4204-804d-ba45a4058624",
+                            ConcurrencyStamp = "3014c079-1210-4204-804d-ba45a4058624",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -231,16 +289,16 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "59298c2f-bb98-47b4-9444-9ba8b4479c8a",
+                            Id = "7ec80f3d-5c94-4c2c-82c7-a594cd50b9be",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4697a76d-f61f-454c-aab1-d0558d69f98e",
+                            ConcurrencyStamp = "5a12f553-b16e-49a0-84a5-944b40ce230f",
                             Email = "pudzian@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "PUDZIAN@WSEI.EDU.PL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHKQfR2pZl/m/Gih6en2ZHsriggN4udVofagJtciASJYps2gAcKyyXM2oiy84Sj1Dg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJwJ6zJ5vU6++VTjPhlroHxPiYeGIf2UjeM0RBPB+bYXevGQ19rVY0o099cZLMX54w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "bfafd76e-5fdb-4155-8a98-945d4c1774ff",
+                            SecurityStamp = "f200ee81-dcb1-49a2-be38-8d2a4eafbfdd",
                             TwoFactorEnabled = false,
                             UserName = "pudzian@wsei.edu.pl"
                         });
@@ -308,8 +366,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "59298c2f-bb98-47b4-9444-9ba8b4479c8a",
-                            RoleId = "1f50c62b-d8a9-4d3f-9804-1c2f808bc718"
+                            UserId = "7ec80f3d-5c94-4c2c-82c7-a594cd50b9be",
+                            RoleId = "3014c079-1210-4204-804d-ba45a4058624"
                         });
                 });
 

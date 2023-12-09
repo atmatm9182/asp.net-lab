@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FI/3GRVhDx4AaGQ9Cqp72GeWCVLt9QJ1sm842BHaxLhe9ka5GrzqqVI+TkQYSikaQ1LfRsvKCfcN6oWJwL4KuQ==",
+  "dgSpecHash": "ikdsooEahAXRa8/0PbAyB+fX+6XVEnBfK6fN6WVOHH6Utg3VBY6/XD4r4X/y1sUeCATZhMrwm3BICX0+sTfynQ==",
   "success": true,
-  "projectFilePath": "D:\\Users\\oleh.kniaziev\\source\\repos\\Laboratorium1 ASP.NET\\laboratorium2\\laboratorium2.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/oleg/wsei/lab3/laboratorium2/laboratorium2.csproj",
+  "expectedPackageFiles": [
+    "/home/oleg/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/home/oleg/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "/home/oleg/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.14/microsoft.netcore.app.host.linux-x64.7.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

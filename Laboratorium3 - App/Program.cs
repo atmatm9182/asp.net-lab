@@ -23,7 +23,7 @@ class Program
             .AddEntityFrameworkStores<AppDbContext>();
         
         builder.Services.AddTransient<IContactService, EFContactService>();
-        builder.Services.AddSingleton<IComputerService, MemoryComputerService>();
+        builder.Services.AddTransient<IComputerService, EFComputerService>();
         builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 
         var app = builder.Build();

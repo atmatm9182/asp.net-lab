@@ -5,7 +5,7 @@ namespace lab3_App.Controllers;
 
 public class ComputerController : Controller
 {
-    private IComputerService _computerService;
+    private readonly IComputerService _computerService;
     public ComputerController(IComputerService service)
     {
         _computerService = service;

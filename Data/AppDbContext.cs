@@ -9,12 +9,14 @@ namespace Data
     {
         public DbSet<ContactEntity> Contacts { get; set; }
         public DbSet<OrganizationEntity> Organizations { get; set; }
+        public DbSet<ComputerEntity> Computers { get; set; }
         private string DbPath { get; set; }
+        
         public AppDbContext()
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "contacts.db");
+            DbPath = Path.Join(path, "contacts.db");
         }
         protected override void OnConfiguring(DbContextOptionsBuilder options) =>
             options.UseSqlite($"Data Source={DbPath}");
@@ -35,7 +37,6 @@ namespace Data
                 .HasData(adminRole);
 
             PasswordHasher<IdentityUser> hasher = new();
-
 
             var user = new IdentityUser()
             {
@@ -117,6 +118,27 @@ namespace Data
                         City = "Kraków",
                         Street = "Dworcowa 7",
                         PostalCode = "31-150",
+                    }
+                );
+
+            modelBuilder.Entity<ComputerEntity>()
+                .HasData(
+                    new ComputerEntity()
+                    {
+                        ComputerId = 1,
+                        Name = "Gaming computer",
+                        Manufacturer = "DELL",
+                        CPU = "Intel Core i9-14900K",
+                        RAM = 32,
+                        GPU = "GeForce RTX 4090",
+                    },
+                    new ComputerEntity()
+                    {
+                        ComputerId = 2,
+                        Name = "Office computer",
+                        Manufacturer = "HP",
+                        CPU = "Intel Core i5",
+                        RAM = 8,
                     }
                 );
         }
