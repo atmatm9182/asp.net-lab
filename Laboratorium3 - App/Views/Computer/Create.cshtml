@@ -26,15 +26,38 @@
         <label asp-for="GPU"></label>
         <input class="form-control" asp-for="GPU" />
     </div>
-	    <div class="mb-3">
-        <label asp-for="Manufacturer"></label>
-        <input class="form-control" asp-for="Manufacturer" />
-    </div>
-	    <div class="mb-3">
+    <div class="mb-3">
         <label asp-for="ProductionDate"></label>
         <input class="form-control" asp-for="ProductionDate" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="ManufacturerId"></label>
+        <input type="text" id="filter"/>
+        <select class="form-control" id="ManufacturerId"></select>
+        <a asp-controller="Manufacturer" asp-action="Create">Dodaj nowego producenta</a>
     </div>
     <div class="mb-3">
         <button class="btn btn-primary" type="submit">Utworz</button>
     </div>
 </form>
+
+@section Scripts
+{
+    <script>
+        const filter = document.getElementById('filter')
+        const select = document.getElementById('ManufacturerId')
+        
+        filter.onchange = function () {
+            fetch(`/api/manufacturers/?q=${filter.value}`)
+                .then(res => res.json())
+                .then(json => {
+                    for (const m of json) {
+                        const opt = document.createElement('option')
+                        opt.setAttribute('value', m.id)
+                        opt.innerText = m.name
+                        select.appendChild(opt)
+                    }
+            })
+        }
+    </script>
+}

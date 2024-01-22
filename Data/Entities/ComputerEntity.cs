@@ -22,7 +22,12 @@ namespace Data.Entities
         public float RAM { get; set; }
         
         public string? GPU { get; set; }
-        public string? Manufacturer { get; set; }
+        public ManufacturerEntity? Manufacturer { get; set; }
+        [ForeignKey("Manufacturer")]
+        public int? ManufacturerId { get; set; }
+        public SoftwareConfigurationEntity? Configuration { get; set; }
+        [ForeignKey("Configuration")]
+        public int? ConfigurationId { get; set; }
         public DateTime? ProductionDate { get; set; }
         public DateTime Created { get; set; }
     }

@@ -11,14 +11,92 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231121143437_identity")]
-    partial class identity
+    [Migration("20240122155343_Creation")]
+    partial class Creation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.13");
+
+            modelBuilder.Entity("Data.Entities.ComputerEntity", b =>
+                {
+                    b.Property<int>("ComputerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("id");
+
+                    b.Property<string>("CPU")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ConfigurationId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GPU")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("ManufacturerId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime?>("ProductionDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<float>("RAM")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("ComputerId");
+
+                    b.HasIndex("ConfigurationId");
+
+                    b.HasIndex("ManufacturerId");
+
+                    b.ToTable("computers");
+
+                    b.HasData(
+                        new
+                        {
+                            ComputerId = 1,
+                            CPU = "Intel Core i9-14900K",
+                            ConfigurationId = 1,
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GPU = "GeForce RTX 4090",
+                            ManufacturerId = 1,
+                            Name = "Gaming computer",
+                            RAM = 32f
+                        },
+                        new
+                        {
+                            ComputerId = 2,
+                            CPU = "Intel Core i5",
+                            ConfigurationId = 2,
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ManufacturerId = 2,
+                            Name = "Office computer",
+                            RAM = 8f
+                        },
+                        new
+                        {
+                            ComputerId = 3,
+                            CPU = "Intel core i7",
+                            ConfigurationId = 3,
+                            Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            GPU = "ASUS RADEON HD 7790",
+                            ManufacturerId = 3,
+                            Name = "School computer",
+                            RAM = 8f
+                        });
+                });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
                 {
@@ -77,6 +155,51 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Data.Entities.ManufacturerEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("WebsiteUrl")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("manufacturers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Dell Inc. is an American-based technology company. It develops, sells, repairs,\nand supports computers and related products and services.",
+                            Name = "DELL",
+                            WebsiteUrl = "www.dell.com"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "HP Inc. is an American multinational information technology company headquartered in Palo Alto, California, \nthat develops personal computers, printers and related supplies, as well as 3D printing solutions.",
+                            Name = "HP",
+                            WebsiteUrl = "www.hp.com"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "ASUSTeK Computer Inc. is a Taiwanese multinational computer, phone hardware and electronics manufacturer",
+                            Name = "ASUS",
+                            WebsiteUrl = "www.asus.com"
+                        });
+                });
+
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -110,6 +233,134 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Data.Entities.SoftwareApplicationEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Version")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("applications");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Microsoft Excel",
+                            Version = "2309"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Microsoft Word",
+                            Version = "2209"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "GIMP",
+                            Version = "2.10.36"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Lazarus",
+                            Version = "3.0"
+                        });
+                });
+
+            modelBuilder.Entity("Data.Entities.SoftwareConfigurationApplicationEntity", b =>
+                {
+                    b.Property<int>("ApplicationId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ConfigurationId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ApplicationId", "ConfigurationId");
+
+                    b.HasIndex("ConfigurationId");
+
+                    b.ToTable("SoftwareConfigurationApplicationEntity");
+
+                    b.HasData(
+                        new
+                        {
+                            ApplicationId = 2,
+                            ConfigurationId = 1
+                        },
+                        new
+                        {
+                            ApplicationId = 1,
+                            ConfigurationId = 2
+                        },
+                        new
+                        {
+                            ApplicationId = 2,
+                            ConfigurationId = 2
+                        },
+                        new
+                        {
+                            ApplicationId = 1,
+                            ConfigurationId = 3
+                        },
+                        new
+                        {
+                            ApplicationId = 2,
+                            ConfigurationId = 3
+                        },
+                        new
+                        {
+                            ApplicationId = 3,
+                            ConfigurationId = 3
+                        },
+                        new
+                        {
+                            ApplicationId = 4,
+                            ConfigurationId = 3
+                        });
+                });
+
+            modelBuilder.Entity("Data.Entities.SoftwareConfigurationEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("OperatingSystem")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("software_configurations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            OperatingSystem = "Windows"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            OperatingSystem = "Windows"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            OperatingSystem = "Windows"
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -138,8 +389,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d444b6c4-0e60-4830-9878-011e70980a70",
-                            ConcurrencyStamp = "d444b6c4-0e60-4830-9878-011e70980a70",
+                            Id = "eff1b04f-4443-4dca-bbc5-bb8707b7098c",
+                            ConcurrencyStamp = "eff1b04f-4443-4dca-bbc5-bb8707b7098c",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -234,18 +485,18 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dd52bedb-42ce-4eae-bcc2-fca88dc89163",
+                            Id = "7846c2ca-8bd0-4310-a48d-23dff70674ac",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a66ad8cb-ce8b-4172-bfe0-7e2ddc0686e0",
+                            ConcurrencyStamp = "e420bcfd-2188-4a2e-9ef6-a499797da335",
                             Email = "pudzian@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "PUDZIAN@WSEI.EDU.PL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEPGy6I8v0oUKKwR26tsVzTQK76n5Le8PWSKzBLC5DK0UMcwnYsKwd5s1Hud3hVrp+Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEN8WUEpx4hOvVlQPSODwoQU1/yqqQr51do8U6/FJv4ObwkZrBClm+3kRQmdRnfbS2w==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5817fe6a-7b4e-4beb-ad78-53459d9378bf",
+                            SecurityStamp = "f5dcb85a-6494-488c-bdba-2642bd76d7e7",
                             TwoFactorEnabled = false,
-                            UserName = "pudzian"
+                            UserName = "pudzian@wsei.edu.pl"
                         });
                 });
 
@@ -311,8 +562,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "dd52bedb-42ce-4eae-bcc2-fca88dc89163",
-                            RoleId = "d444b6c4-0e60-4830-9878-011e70980a70"
+                            UserId = "7846c2ca-8bd0-4310-a48d-23dff70674ac",
+                            RoleId = "eff1b04f-4443-4dca-bbc5-bb8707b7098c"
                         });
                 });
 
@@ -335,6 +586,21 @@ namespace Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Data.Entities.ComputerEntity", b =>
+                {
+                    b.HasOne("Data.Entities.SoftwareConfigurationEntity", "Configuration")
+                        .WithMany("Computers")
+                        .HasForeignKey("ConfigurationId");
+
+                    b.HasOne("Data.Entities.ManufacturerEntity", "Manufacturer")
+                        .WithMany()
+                        .HasForeignKey("ManufacturerId");
+
+                    b.Navigation("Configuration");
+
+                    b.Navigation("Manufacturer");
+                });
+
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
                 {
                     b.HasOne("Data.Entities.OrganizationEntity", "Organization")
@@ -342,6 +608,66 @@ namespace Data.Migrations
                         .HasForeignKey("OrganizationId");
 
                     b.Navigation("Organization");
+                });
+
+            modelBuilder.Entity("Data.Entities.ManufacturerEntity", b =>
+                {
+                    b.OwnsOne("Data.Models.Address", "Address", b1 =>
+                        {
+                            b1.Property<int>("ManufacturerEntityId")
+                                .HasColumnType("INTEGER");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("PostalCode")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.HasKey("ManufacturerEntityId");
+
+                            b1.ToTable("manufacturers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ManufacturerEntityId");
+
+                            b1.HasData(
+                                new
+                                {
+                                    ManufacturerEntityId = 1,
+                                    City = "Round Rock, Texas",
+                                    Country = "USA",
+                                    PostalCode = "78664",
+                                    Street = "South Interstate"
+                                },
+                                new
+                                {
+                                    ManufacturerEntityId = 2,
+                                    City = "Palo Alto, California",
+                                    Country = "USA",
+                                    PostalCode = "94020",
+                                    Street = "Honover"
+                                },
+                                new
+                                {
+                                    ManufacturerEntityId = 3,
+                                    City = "Taipei",
+                                    Country = "Taiwan",
+                                    PostalCode = "100-116",
+                                    Street = "Beitou district"
+                                });
+                        });
+
+                    b.Navigation("Address");
                 });
 
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
@@ -352,6 +678,10 @@ namespace Data.Migrations
                                 .HasColumnType("INTEGER");
 
                             b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("TEXT");
+
+                            b1.Property<string>("Country")
                                 .IsRequired()
                                 .HasColumnType("TEXT");
 
@@ -375,6 +705,7 @@ namespace Data.Migrations
                                 {
                                     OrganizationEntityId = 1,
                                     City = "Kraków",
+                                    Country = "Poland",
                                     PostalCode = "31-150",
                                     Street = "Św. Filipa 17"
                                 },
@@ -382,12 +713,28 @@ namespace Data.Migrations
                                 {
                                     OrganizationEntityId = 2,
                                     City = "Kraków",
+                                    Country = "Poland",
                                     PostalCode = "31-150",
                                     Street = "Dworcowa 7"
                                 });
                         });
 
                     b.Navigation("Address")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Data.Entities.SoftwareConfigurationApplicationEntity", b =>
+                {
+                    b.HasOne("Data.Entities.SoftwareApplicationEntity", null)
+                        .WithMany()
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Data.Entities.SoftwareConfigurationEntity", null)
+                        .WithMany()
+                        .HasForeignKey("ConfigurationId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -445,6 +792,11 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Navigation("Contacts");
+                });
+
+            modelBuilder.Entity("Data.Entities.SoftwareConfigurationEntity", b =>
+                {
+                    b.Navigation("Computers");
                 });
 #pragma warning restore 612, 618
         }

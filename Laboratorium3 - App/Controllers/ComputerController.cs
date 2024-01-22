@@ -1,5 +1,6 @@
 using lab3_App.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace lab3_App.Controllers;
 
@@ -63,5 +64,15 @@ public class ComputerController : Controller
     public IActionResult Details(int id)
     {
         return View(_computerService.FindById(id));
+    }
+    
+    private List<SelectListItem> CreateSelectListItems()
+    {
+        return _computerService.FindAllManufacturers()
+                        .Select(e => new SelectListItem()
+                        {
+                            Text = e.Name,
+                            Value = e.Id.ToString(),
+                        }).Append(new SelectListItem() { Text = "Brak",  Value = ""}).ToList();
     }
 }

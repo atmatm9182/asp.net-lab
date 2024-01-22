@@ -18,6 +18,74 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /home/oleg/wsei/lab3/Laboratorium3 - App
 build_property._RazorSourceGeneratorDebug = 
 
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFudWZhY3R1cmVyL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/CreateApi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFudWZhY3R1cmVyL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFudWZhY3R1cmVyL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFudWZhY3R1cmVyL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/PagedIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/Manufacturer/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTWFudWZhY3R1cmVyL1VwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/SoftwareConfiguration/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29mdHdhcmVDb25maWd1cmF0aW9uL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/SoftwareConfiguration/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29mdHdhcmVDb25maWd1cmF0aW9uL0RlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/SoftwareConfiguration/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29mdHdhcmVDb25maWd1cmF0aW9uL0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/SoftwareConfiguration/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29mdHdhcmVDb25maWd1cmF0aW9uL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/oleg/wsei/lab3/Laboratorium3 - App/Views/SoftwareConfiguration/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU29mdHdhcmVDb25maWd1cmF0aW9uL1VwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+build_metadata.AdditionalFiles.CssScope = 
+
 [/home/oleg/wsei/lab3/Laboratorium3 - App/Areas/Identity/Pages/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9BY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

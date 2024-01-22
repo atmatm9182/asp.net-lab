@@ -1,0 +1,63 @@
+﻿@using lab3_App.Models;
+@model SoftwareConfiguration
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Dodaj konfiguracje</h1>
+<form asp-controller="SoftwareConfiguration" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="OperatingSystem"></label>
+        <input class = "form-control" asp-for="OperatingSystem"/>
+        <span class="text-danger" asp-validation-for="OperatingSystem"></span>
+    </div>
+    <div id="appIds">
+       
+    </div>
+    <button class="btn btn-primary" onclick="addSelect()">Dodaj aplikacje</button>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Utworz</button>
+    </div>
+    <div>
+    </div>
+</form>
+
+@section Scripts
+{
+    <script>
+    let applications;
+    fetch('/api/applications')
+        .then(res => res.json())
+        .then(apps => {
+            applications = apps; 
+        })
+    
+    const list = document.getElementById("appIds");
+    let prev = null;
+    function addSelect() {
+        if (prev != null) {
+            applications.find(app => {
+                const name = prev.options[prev.selectedIndex].text 
+                return app.name === name;
+            })
+        }
+        
+        const select = document.createElement('select');
+        for (const app of applications) {
+            const opt = document.createElement('option')
+            opt.setAttribute('value', app.id);
+            opt.innerText = app.name;
+            
+            opt.addEventListener('click', (e) => {
+                const idx = applications.indexOf(app);
+                applications.splice(idx, 1);
+            });
+            select.appendChild(opt);
+        }
+        
+        prev = select;
+        list.appendChild(select);
+    }
+    </script>
+}

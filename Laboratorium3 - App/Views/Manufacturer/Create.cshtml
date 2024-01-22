@@ -1,0 +1,26 @@
+﻿@using lab3_App.Models;
+@model Manufacturer
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Dodaj producenta</h1>
+<form asp-controller="Manufacturer" asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Name"></label>
+        <input class = "form-control" asp-for="Name"/>
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description"></label>
+        <input class="form-control" asp-for="Description"/>
+    </div>
+    <div class="mb-3">
+        <label asp-for="WebsiteUrl"></label>
+        <input class="form-control" asp-for="WebsiteUrl" />
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Utworz</button>
+    </div>
+</form>

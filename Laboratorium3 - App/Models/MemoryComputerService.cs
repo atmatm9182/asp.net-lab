@@ -1,3 +1,5 @@
+using Data.Entities;
+
 namespace lab3_App.Models;
 
 public class MemoryComputerService : IComputerService
@@ -37,5 +39,10 @@ public class MemoryComputerService : IComputerService
     public void Update(Computer computer)
     {
         _computers[computer.Id] = computer;
+    }
+
+    public List<ManufacturerEntity> FindAllManufacturers()
+    {
+        throw new NotImplementedException();
     }
 }

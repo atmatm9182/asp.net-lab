@@ -1,4 +1,5 @@
 ﻿using Data;
+using Data.Entities;
 
 namespace lab3_App.Models
 {
@@ -47,6 +48,11 @@ namespace lab3_App.Models
             }
 
             return null;
+        }
+
+        public List<ManufacturerEntity> FindAllManufacturers()
+        {
+            throw new NotImplementedException();
         }
     }
 }

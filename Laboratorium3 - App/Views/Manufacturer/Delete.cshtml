@@ -1,0 +1,19 @@
+﻿@using lab3_App.Models
+@model Manufacturer
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Czy na pewno chcesz usunac producenta?</h1>
+<h3>Nazwa</h3>
+<p>@Model.Name</p>
+<h3>Opis</h3>
+<p>@Model.Description</p>
+<h3>Strona internetowa</h3>
+<p>@Model.WebsiteUrl</p>
+<form asp-action="Delete">
+    <input asp-for="Id" />
+    <button class="btn btn-danger" type="submit">Tak</button>
+    <a class="btn btn-secondary" asp-action="Index">Nie</a>
+</form>

@@ -1,0 +1,25 @@
+﻿@using lab3_App.Models
+@model Manufacturer
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Szczegoly producenta</h1>
+
+<h2>Imię</h2>
+<p>@Model.Name</p>
+
+@if (Model.Description != null)
+{
+    <h2>Opis</h2>
+    <p>@Model.Description</p>
+}
+
+@if (@Model.WebsiteUrl != null)
+{
+    <h2>Strona internetowa</h2>
+    <p>@Model.WebsiteUrl</p>
+}
+
+<a class="btn btn-primary" asp-action="Index">Wroc</a>

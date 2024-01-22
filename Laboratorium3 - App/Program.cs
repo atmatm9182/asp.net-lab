@@ -24,6 +24,8 @@ class Program
         
         builder.Services.AddTransient<IContactService, EFContactService>();
         builder.Services.AddTransient<IComputerService, EFComputerService>();
+        builder.Services.AddTransient<IManufacturerService, EFManufacturerService>();
+        builder.Services.AddTransient<ISoftwareConfigurationService, EFSoftwareConfigurationService>();
         builder.Services.AddSingleton<IDateTimeProvider, CurrentDateTimeProvider>();
 
         var app = builder.Build();

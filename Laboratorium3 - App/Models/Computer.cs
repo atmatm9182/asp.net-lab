@@ -19,7 +19,7 @@ public class Computer
     [Display(Name = "Karta graficzna")]
     public string? GPU { get; set; }
     [Display(Name = "Producent")]
-    public string? Manufacturer { get; set; }
+    public int? ManufacturerId { get; set; }
     [Display(Name = "Data produkcji")]
     public DateTime? ProductionDate { get; set; }
     [HiddenInput]

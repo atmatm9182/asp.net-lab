@@ -1,0 +1,42 @@
+﻿@using lab3_App.Models
+@model List<SoftwareConfiguration>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Lista komputerow</h1>
+<a class="btn btn-primary" asp-controller="SoftwareConfiguration" asp-action="Create">Utworz nowy komputer</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(_ => Model.First().Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(_ => Model.First().OperatingSystem)
+        </th>
+        <th>
+            Akcje
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.OperatingSystem
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="SoftwareConfiguration" asp-action="Update" asp-route-id="@item.Id">Edytuj</a>
+                    <a class="btn btn-outline-info" asp-controller="SoftwareConfiguration" asp-action="Details" asp-route-id="@item.Id">Szczegoly</a>
+                    <a class="btn btn-outline-danger" asp-controller="SoftwareConfiguration" asp-action="Delete" asp-route-id="@item.Id">Usun</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

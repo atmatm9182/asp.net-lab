@@ -19,6 +19,9 @@
         <th>
             @Html.DisplayNameFor(_ => Model.First().RAM)
         </th>
+        <th>
+            Akcje
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -30,6 +33,9 @@
                 </td>
                 <td>
                     @item.CPU
+                </td>
+                <td>
+                    @item.RAM GB
                 </td>
                 <td>
                     <a class="btn btn-outline-primary" asp-controller="Computer" asp-action="Update" asp-route-id="@item.Id">Edytuj</a>

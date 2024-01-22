@@ -64,4 +64,19 @@
     <_ContentIncludedByDefault Remove="Areas\Identity\Pages\_ViewStart.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="Views\Manufacturer\Create.cshtml" />
+    <AdditionalFiles Include="Views\Manufacturer\CreateApi.cshtml" />
+    <AdditionalFiles Include="Views\Manufacturer\Delete.cshtml" />
+    <AdditionalFiles Include="Views\Manufacturer\Details.cshtml" />
+    <AdditionalFiles Include="Views\Manufacturer\Index.cshtml" />
+    <AdditionalFiles Include="Views\Manufacturer\PagedIndex.cshtml" />
+    <AdditionalFiles Include="Views\Manufacturer\Update.cshtml" />
+    <AdditionalFiles Include="Views\SoftwareConfiguration\Create.cshtml" />
+    <AdditionalFiles Include="Views\SoftwareConfiguration\Delete.cshtml" />
+    <AdditionalFiles Include="Views\SoftwareConfiguration\Details.cshtml" />
+    <AdditionalFiles Include="Views\SoftwareConfiguration\Index.cshtml" />
+    <AdditionalFiles Include="Views\SoftwareConfiguration\Update.cshtml" />
+  </ItemGroup>
+
 </Project>
