@@ -41,6 +41,11 @@ public class ComputerController : Controller
     {
         if (ModelState.IsValid)
         {
+            var computer = _computerService.FindById(model.Id);
+            if (computer is null)
+            {
+                return NotFound();
+            }
             _computerService.Update(model);
             return RedirectToAction("Index");
         }
@@ -56,6 +61,11 @@ public class ComputerController : Controller
     [HttpPost]
     public IActionResult Delete(Computer model)
     {
+        var computer = _computerService.FindById(model.Id);
+        if (computer is null) 
+        {
+            return NotFound();
+        }
         _computerService.Delete(model.Id);
         return RedirectToAction("Index");
     }
@@ -63,7 +73,11 @@ public class ComputerController : Controller
     [HttpGet]
     public IActionResult Details(int id)
     {
-        return View(_computerService.FindById(id));
+        var computer = _computerService.FindById(id);
+        if (computer is null) {
+            return NotFound();
+        }
+        return View(computer);
     }
     
     private List<SelectListItem> CreateSelectListItems()

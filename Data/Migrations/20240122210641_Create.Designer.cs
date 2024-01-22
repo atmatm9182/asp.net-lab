@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240122155343_Creation")]
-    partial class Creation
+    [Migration("20240122210641_Create")]
+    partial class Create
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,9 +32,6 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ConfigurationId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("Created")
                         .HasColumnType("TEXT");
 
@@ -49,6 +46,9 @@ namespace Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("OperatingSystemId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime?>("ProductionDate")
                         .HasColumnType("TEXT");
 
@@ -57,9 +57,9 @@ namespace Data.Migrations
 
                     b.HasKey("ComputerId");
 
-                    b.HasIndex("ConfigurationId");
-
                     b.HasIndex("ManufacturerId");
+
+                    b.HasIndex("OperatingSystemId");
 
                     b.ToTable("computers");
 
@@ -68,32 +68,32 @@ namespace Data.Migrations
                         {
                             ComputerId = 1,
                             CPU = "Intel Core i9-14900K",
-                            ConfigurationId = 1,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GPU = "GeForce RTX 4090",
                             ManufacturerId = 1,
                             Name = "Gaming computer",
+                            OperatingSystemId = 1,
                             RAM = 32f
                         },
                         new
                         {
                             ComputerId = 2,
                             CPU = "Intel Core i5",
-                            ConfigurationId = 2,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             ManufacturerId = 2,
                             Name = "Office computer",
+                            OperatingSystemId = 1,
                             RAM = 8f
                         },
                         new
                         {
                             ComputerId = 3,
                             CPU = "Intel core i7",
-                            ConfigurationId = 3,
                             Created = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             GPU = "ASUS RADEON HD 7790",
                             ManufacturerId = 3,
                             Name = "School computer",
+                            OperatingSystemId = 1,
                             RAM = 8f
                         });
                 });
@@ -200,6 +200,44 @@ namespace Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Data.Entities.OperatingSystemEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ReleaseYear")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Version")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OperatingSystems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Windows",
+                            ReleaseYear = 2015,
+                            Version = "22H2"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "chrome OS",
+                            ReleaseYear = 2011,
+                            Version = "120.0.6099.235"
+                        });
+                });
+
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -233,134 +271,6 @@ namespace Data.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Data.Entities.SoftwareApplicationEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Version")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("applications");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Microsoft Excel",
-                            Version = "2309"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Microsoft Word",
-                            Version = "2209"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "GIMP",
-                            Version = "2.10.36"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Name = "Lazarus",
-                            Version = "3.0"
-                        });
-                });
-
-            modelBuilder.Entity("Data.Entities.SoftwareConfigurationApplicationEntity", b =>
-                {
-                    b.Property<int>("ApplicationId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("ConfigurationId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("ApplicationId", "ConfigurationId");
-
-                    b.HasIndex("ConfigurationId");
-
-                    b.ToTable("SoftwareConfigurationApplicationEntity");
-
-                    b.HasData(
-                        new
-                        {
-                            ApplicationId = 2,
-                            ConfigurationId = 1
-                        },
-                        new
-                        {
-                            ApplicationId = 1,
-                            ConfigurationId = 2
-                        },
-                        new
-                        {
-                            ApplicationId = 2,
-                            ConfigurationId = 2
-                        },
-                        new
-                        {
-                            ApplicationId = 1,
-                            ConfigurationId = 3
-                        },
-                        new
-                        {
-                            ApplicationId = 2,
-                            ConfigurationId = 3
-                        },
-                        new
-                        {
-                            ApplicationId = 3,
-                            ConfigurationId = 3
-                        },
-                        new
-                        {
-                            ApplicationId = 4,
-                            ConfigurationId = 3
-                        });
-                });
-
-            modelBuilder.Entity("Data.Entities.SoftwareConfigurationEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("OperatingSystem")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("software_configurations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            OperatingSystem = "Windows"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            OperatingSystem = "Windows"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            OperatingSystem = "Windows"
-                        });
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -389,8 +299,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "eff1b04f-4443-4dca-bbc5-bb8707b7098c",
-                            ConcurrencyStamp = "eff1b04f-4443-4dca-bbc5-bb8707b7098c",
+                            Id = "e3a9c9e9-9be6-4c30-83f5-a17d9b1318d6",
+                            ConcurrencyStamp = "e3a9c9e9-9be6-4c30-83f5-a17d9b1318d6",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });
@@ -485,16 +395,16 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7846c2ca-8bd0-4310-a48d-23dff70674ac",
+                            Id = "b27ebbe9-0a70-4dd1-958f-59f7ac4d9030",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e420bcfd-2188-4a2e-9ef6-a499797da335",
+                            ConcurrencyStamp = "7d54ec72-69c5-4551-9882-1f76c7df8c42",
                             Email = "pudzian@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "PUDZIAN@WSEI.EDU.PL",
-                            PasswordHash = "AQAAAAEAACcQAAAAEN8WUEpx4hOvVlQPSODwoQU1/yqqQr51do8U6/FJv4ObwkZrBClm+3kRQmdRnfbS2w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEF5lDZqKV86n5nKPFiLUeDi+Bv8+VnzDSpCCTdb9DVwq+LiJJQicC9Vqg741E7bKtw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f5dcb85a-6494-488c-bdba-2642bd76d7e7",
+                            SecurityStamp = "c2da7ba8-03bb-4890-aa97-f3581a7bad34",
                             TwoFactorEnabled = false,
                             UserName = "pudzian@wsei.edu.pl"
                         });
@@ -562,8 +472,8 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "7846c2ca-8bd0-4310-a48d-23dff70674ac",
-                            RoleId = "eff1b04f-4443-4dca-bbc5-bb8707b7098c"
+                            UserId = "b27ebbe9-0a70-4dd1-958f-59f7ac4d9030",
+                            RoleId = "e3a9c9e9-9be6-4c30-83f5-a17d9b1318d6"
                         });
                 });
 
@@ -588,17 +498,17 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.ComputerEntity", b =>
                 {
-                    b.HasOne("Data.Entities.SoftwareConfigurationEntity", "Configuration")
-                        .WithMany("Computers")
-                        .HasForeignKey("ConfigurationId");
-
                     b.HasOne("Data.Entities.ManufacturerEntity", "Manufacturer")
                         .WithMany()
                         .HasForeignKey("ManufacturerId");
 
-                    b.Navigation("Configuration");
+                    b.HasOne("Data.Entities.OperatingSystemEntity", "OperatingSystem")
+                        .WithMany()
+                        .HasForeignKey("OperatingSystemId");
 
                     b.Navigation("Manufacturer");
+
+                    b.Navigation("OperatingSystem");
                 });
 
             modelBuilder.Entity("Data.Entities.ContactEntity", b =>
@@ -723,21 +633,6 @@ namespace Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Data.Entities.SoftwareConfigurationApplicationEntity", b =>
-                {
-                    b.HasOne("Data.Entities.SoftwareApplicationEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ApplicationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Data.Entities.SoftwareConfigurationEntity", null)
-                        .WithMany()
-                        .HasForeignKey("ConfigurationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -792,11 +687,6 @@ namespace Data.Migrations
             modelBuilder.Entity("Data.Entities.OrganizationEntity", b =>
                 {
                     b.Navigation("Contacts");
-                });
-
-            modelBuilder.Entity("Data.Entities.SoftwareConfigurationEntity", b =>
-                {
-                    b.Navigation("Computers");
                 });
 #pragma warning restore 612, 618
         }

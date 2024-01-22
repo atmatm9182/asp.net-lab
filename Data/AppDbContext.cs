@@ -12,8 +12,7 @@ namespace Data
         public DbSet<OrganizationEntity> Organizations { get; set; }
         public DbSet<ComputerEntity> Computers { get; set; }
         public DbSet<ManufacturerEntity> Manufacturers { get; set; }
-        public DbSet<SoftwareConfigurationEntity> SoftwareConfigurations { get; set; }
-        public DbSet<SoftwareApplicationEntity> Applications { get; set; }
+        public DbSet<OperatingSystemEntity> OperatingSystems { get; set; }
         private string DbPath { get; set; }
 
         public AppDbContext()
@@ -37,29 +36,55 @@ namespace Data
             };
             adminRole.ConcurrencyStamp = adminRole.Id;
 
+            var regularRole = new IdentityRole()
+            {
+                Name = "regular",
+                NormalizedName = "REGULAR",
+                Id = Guid.NewGuid().ToString(),
+            };
+            regularRole.ConcurrencyStamp = regularRole.Id;
+
             modelBuilder.Entity<IdentityRole>()
-                .HasData(adminRole);
+                .HasData(adminRole, regularRole);
 
             PasswordHasher<IdentityUser> hasher = new();
 
-            var user = new IdentityUser()
+            var adminUser = new IdentityUser()
             {
-                UserName = "pudzian@wsei.edu.pl",
+                UserName = "pudzian",
                 Email = "pudzian@wsei.edu.pl",
                 NormalizedEmail = "PUDZIAN@WSEI.EDU.PL",
                 EmailConfirmed = true,
                 Id = Guid.NewGuid().ToString(),
             };
-            user.PasswordHash = hasher.HashPassword(user, "1AdAbAcAdAbA_!@");
+            adminUser.PasswordHash = hasher.HashPassword(adminUser, "1AdAbAcAdAbA_!@");
+
+            var regularUser = new IdentityUser()
+            {
+                UserName = "user",
+                Email = "user@wsei.edu.pl",
+                NormalizedEmail = "USER@WSEI.EDU.PL",
+                EmailConfirmed = true,
+                Id = Guid.NewGuid().ToString(),
+            };
+            regularUser.PasswordHash = hasher.HashPassword(regularUser, "abcd9876!");
 
             modelBuilder.Entity<IdentityUser>()
-                .HasData(user);
+                .HasData(adminUser, regularUser);
             modelBuilder.Entity<IdentityUserRole<string>>()
-                .HasData(new IdentityUserRole<string>()
-                {
-                    RoleId = adminRole.Id,
-                    UserId = user.Id,
-                });
+                .HasData(
+                    new IdentityUserRole<string>()
+                    {
+                        RoleId = adminRole.Id,
+                        UserId = adminUser.Id,
+                    },
+
+                    new IdentityUserRole<string>()
+                    {
+                        RoleId = regularRole.Id,
+                        UserId = regularUser.Id,
+                    }
+                );
 
             modelBuilder.Entity<ContactEntity>()
                 .HasOne(c => c.Organization)
@@ -196,7 +221,7 @@ namespace Data
                 .HasOne(c => c.Manufacturer);
 
             modelBuilder.Entity<ComputerEntity>()
-                .HasOne(c => c.Configuration);
+                .HasOne(c => c.OperatingSystem);
 
             modelBuilder.Entity<ComputerEntity>()
                 .HasData(
@@ -208,7 +233,7 @@ namespace Data
                         CPU = "Intel Core i9-14900K",
                         RAM = 32,
                         GPU = "GeForce RTX 4090",
-                        ConfigurationId = 1,
+                        OperatingSystemId = 1,
                     },
                     new ComputerEntity()
                     {
@@ -217,7 +242,7 @@ namespace Data
                         ManufacturerId = manufacturerHp.Id,
                         CPU = "Intel Core i5",
                         RAM = 8,
-                        ConfigurationId = 2,
+                        OperatingSystemId = 1,
                     },
                     new ComputerEntity()
                     {
@@ -227,110 +252,26 @@ namespace Data
                         CPU = "Intel core i7",
                         RAM = 8,
                         GPU = "ASUS RADEON HD 7790",
-                        ConfigurationId = 3,
+                        OperatingSystemId = 1,
                     }
                 );
 
-            modelBuilder.Entity<ComputerEntity>()
-                .HasOne(c => c.Configuration)
-                .WithMany(c => c.Computers)
-                .HasForeignKey(c => c.ConfigurationId);
-
-            var excel = new SoftwareApplicationEntity()
-            {
-                Id = 1,
-                Name = "Microsoft Excel",
-                Version = "2309"
-            };
-            var word = new SoftwareApplicationEntity()
-            {
-                Id = 2,
-                Name = "Microsoft Word",
-                Version = "2209"
-            };
-            var gimp = new SoftwareApplicationEntity()
-            {
-                Id = 3,
-                Name = "GIMP",
-                Version = "2.10.36"
-            };
-            var lazarus = new SoftwareApplicationEntity()
-            {
-                Id = 4,
-                Name = "Lazarus",
-                Version = "3.0"
-            };
-
-            modelBuilder.Entity<SoftwareConfigurationEntity>()
-                .HasMany(sc => sc.InstalledApplications)
-                .WithMany(a => a.Configurations)
-                .UsingEntity<SoftwareConfigurationApplicationEntity>(
-                    l => l.HasOne<SoftwareApplicationEntity>().WithMany().HasForeignKey(e => e.ApplicationId),
-                    r => r.HasOne<SoftwareConfigurationEntity>().WithMany().HasForeignKey(e => e.ConfigurationId)
-                );
-
-            modelBuilder.Entity<SoftwareConfigurationEntity>()
+            modelBuilder.Entity<OperatingSystemEntity>()
                 .HasData(
-                    new SoftwareConfigurationEntity()
+                    new OperatingSystemEntity()
                     {
                         Id = 1,
-                        OperatingSystem = "Windows",
+                        Name = "Windows",
+                        Version = "22H2",
+                        ReleaseYear = 2015
                     },
-                    new SoftwareConfigurationEntity()
+                    new OperatingSystemEntity()
                     {
                         Id = 2,
-                        OperatingSystem = "Windows",
-                    },
-                    new SoftwareConfigurationEntity()
-                    {
-                        Id = 3,
-                        OperatingSystem = "Windows",
+                        Name = "chrome OS",
+                        Version = "120.0.6099.235",
+                        ReleaseYear = 2011
                     }
-                    );
-
-            modelBuilder.Entity<SoftwareApplicationEntity>()
-                .HasData(excel, word, gimp, lazarus);
-
-            modelBuilder.Entity<SoftwareConfigurationApplicationEntity>()
-                .HasData(
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 1,
-                    ApplicationId = 2,
-                },
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 2,
-                    ApplicationId = 1,
-                },
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 2,
-                    ApplicationId = 2,
-                },
-
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 3,
-                    ApplicationId = 1,
-                },
-
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 3,
-                    ApplicationId = 2,
-                },
-
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 3,
-                    ApplicationId = 3,
-                },
-                new SoftwareConfigurationApplicationEntity()
-                {
-                    ConfigurationId = 3,
-                    ApplicationId = 4,
-                }
                 );
         }
     }

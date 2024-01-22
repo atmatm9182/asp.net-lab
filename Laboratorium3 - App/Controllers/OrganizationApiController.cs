@@ -1,5 +1,4 @@
 ﻿using Data;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace lab3_App.Controllers

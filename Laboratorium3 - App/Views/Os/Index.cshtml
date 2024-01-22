@@ -1,0 +1,49 @@
+﻿@using Data.Entities;
+@model List<OperatingSystemEntity>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Lista systemów operacyjnych</h1>
+<a class="btn btn-primary" asp-controller="Computer" asp-action="Create">Utworz nowy system operacyjny</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(_ => Model.First().Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(_ => Model.First().Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(_ => Model.First().ReleaseYear)
+        </th>
+        <th>
+            Akcje
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Version
+                </td>
+                <td>
+                    @item.ReleaseYear
+                </td>
+                <td>
+                    <a class="btn btn-outline-primary" asp-controller="OperatingSystem" asp-action="Update" asp-route-id="@item.Id">Edytuj</a>
+                    <a class="btn btn-outline-info" asp-controller="OperatingSystem" asp-action="Details" asp-route-id="@item.Id">Szczegoly</a>
+                    <a class="btn btn-outline-danger" asp-controller="OperatingSystem" asp-action="Delete" asp-route-id="@item.Id">Usun</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

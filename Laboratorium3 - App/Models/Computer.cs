@@ -22,6 +22,8 @@ public class Computer
     public int? ManufacturerId { get; set; }
     [Display(Name = "Data produkcji")]
     public DateTime? ProductionDate { get; set; }
+    [Display(Name = "System operacyjny")]
+    public int? OperatingSystemId { get; set; }
     [HiddenInput]
     [Display(Name = "Został utworzony")]
     public DateTime Created { get; set; }

@@ -25,9 +25,9 @@ namespace Data.Entities
         public ManufacturerEntity? Manufacturer { get; set; }
         [ForeignKey("Manufacturer")]
         public int? ManufacturerId { get; set; }
-        public SoftwareConfigurationEntity? Configuration { get; set; }
-        [ForeignKey("Configuration")]
-        public int? ConfigurationId { get; set; }
+        public OperatingSystemEntity? OperatingSystem { get; set; }
+        [ForeignKey("OperatingSystem")]
+        public int? OperatingSystemId { get; set; }
         public DateTime? ProductionDate { get; set; }
         public DateTime Created { get; set; }
     }

@@ -8,25 +8,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Creation : Migration
+    public partial class Create : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "applications",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Version = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_applications", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -86,6 +72,21 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "OperatingSystems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Version = table.Column<string>(type: "TEXT", nullable: false),
+                    ReleaseYear = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OperatingSystems", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "organizations",
                 columns: table => new
                 {
@@ -101,19 +102,6 @@ namespace Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_organizations", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "software_configurations",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    OperatingSystem = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_software_configurations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -223,6 +211,36 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "computers",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    CPU = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    RAM = table.Column<float>(type: "REAL", nullable: false),
+                    GPU = table.Column<string>(type: "TEXT", nullable: true),
+                    ManufacturerId = table.Column<int>(type: "INTEGER", nullable: true),
+                    OperatingSystemId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ProductionDate = table.Column<DateTime>(type: "TEXT", nullable: true),
+                    Created = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_computers", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_computers_OperatingSystems_OperatingSystemId",
+                        column: x => x.OperatingSystemId,
+                        principalTable: "OperatingSystems",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_computers_manufacturers_ManufacturerId",
+                        column: x => x.ManufacturerId,
+                        principalTable: "manufacturers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "contacts",
                 columns: table => new
                 {
@@ -245,79 +263,23 @@ namespace Data.Migrations
                         principalColumn: "Id");
                 });
 
-            migrationBuilder.CreateTable(
-                name: "computers",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    CPU = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
-                    RAM = table.Column<float>(type: "REAL", nullable: false),
-                    GPU = table.Column<string>(type: "TEXT", nullable: true),
-                    ManufacturerId = table.Column<int>(type: "INTEGER", nullable: true),
-                    ConfigurationId = table.Column<int>(type: "INTEGER", nullable: true),
-                    ProductionDate = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    Created = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_computers", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_computers_manufacturers_ManufacturerId",
-                        column: x => x.ManufacturerId,
-                        principalTable: "manufacturers",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_computers_software_configurations_ConfigurationId",
-                        column: x => x.ConfigurationId,
-                        principalTable: "software_configurations",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SoftwareConfigurationApplicationEntity",
-                columns: table => new
-                {
-                    ConfigurationId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ApplicationId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SoftwareConfigurationApplicationEntity", x => new { x.ApplicationId, x.ConfigurationId });
-                    table.ForeignKey(
-                        name: "FK_SoftwareConfigurationApplicationEntity_applications_ApplicationId",
-                        column: x => x.ApplicationId,
-                        principalTable: "applications",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_SoftwareConfigurationApplicationEntity_software_configurations_ConfigurationId",
-                        column: x => x.ConfigurationId,
-                        principalTable: "software_configurations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "eff1b04f-4443-4dca-bbc5-bb8707b7098c", "eff1b04f-4443-4dca-bbc5-bb8707b7098c", "admin", "ADMIN" });
+                values: new object[] { "e3a9c9e9-9be6-4c30-83f5-a17d9b1318d6", "e3a9c9e9-9be6-4c30-83f5-a17d9b1318d6", "admin", "ADMIN" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "7846c2ca-8bd0-4310-a48d-23dff70674ac", 0, "e420bcfd-2188-4a2e-9ef6-a499797da335", "pudzian@wsei.edu.pl", true, false, null, "PUDZIAN@WSEI.EDU.PL", null, "AQAAAAEAACcQAAAAEN8WUEpx4hOvVlQPSODwoQU1/yqqQr51do8U6/FJv4ObwkZrBClm+3kRQmdRnfbS2w==", null, false, "f5dcb85a-6494-488c-bdba-2642bd76d7e7", false, "pudzian@wsei.edu.pl" });
+                values: new object[] { "b27ebbe9-0a70-4dd1-958f-59f7ac4d9030", 0, "7d54ec72-69c5-4551-9882-1f76c7df8c42", "pudzian@wsei.edu.pl", true, false, null, "PUDZIAN@WSEI.EDU.PL", null, "AQAAAAEAACcQAAAAEF5lDZqKV86n5nKPFiLUeDi+Bv8+VnzDSpCCTdb9DVwq+LiJJQicC9Vqg741E7bKtw==", null, false, "c2da7ba8-03bb-4890-aa97-f3581a7bad34", false, "pudzian@wsei.edu.pl" });
 
             migrationBuilder.InsertData(
-                table: "applications",
-                columns: new[] { "Id", "Name", "Version" },
+                table: "OperatingSystems",
+                columns: new[] { "Id", "Name", "ReleaseYear", "Version" },
                 values: new object[,]
                 {
-                    { 1, "Microsoft Excel", "2309" },
-                    { 2, "Microsoft Word", "2209" },
-                    { 3, "GIMP", "2.10.36" },
-                    { 4, "Lazarus", "3.0" }
+                    { 1, "Windows", 2015, "22H2" },
+                    { 2, "chrome OS", 2011, "120.0.6099.235" }
                 });
 
             migrationBuilder.InsertData(
@@ -340,42 +302,18 @@ namespace Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "software_configurations",
-                columns: new[] { "Id", "OperatingSystem" },
-                values: new object[,]
-                {
-                    { 1, "Windows" },
-                    { 2, "Windows" },
-                    { 3, "Windows" }
-                });
-
-            migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "eff1b04f-4443-4dca-bbc5-bb8707b7098c", "7846c2ca-8bd0-4310-a48d-23dff70674ac" });
-
-            migrationBuilder.InsertData(
-                table: "SoftwareConfigurationApplicationEntity",
-                columns: new[] { "ApplicationId", "ConfigurationId" },
-                values: new object[,]
-                {
-                    { 1, 2 },
-                    { 1, 3 },
-                    { 2, 1 },
-                    { 2, 2 },
-                    { 2, 3 },
-                    { 3, 3 },
-                    { 4, 3 }
-                });
+                values: new object[] { "e3a9c9e9-9be6-4c30-83f5-a17d9b1318d6", "b27ebbe9-0a70-4dd1-958f-59f7ac4d9030" });
 
             migrationBuilder.InsertData(
                 table: "computers",
-                columns: new[] { "id", "CPU", "ConfigurationId", "Created", "GPU", "ManufacturerId", "Name", "ProductionDate", "RAM" },
+                columns: new[] { "id", "CPU", "Created", "GPU", "ManufacturerId", "Name", "OperatingSystemId", "ProductionDate", "RAM" },
                 values: new object[,]
                 {
-                    { 1, "Intel Core i9-14900K", 1, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "GeForce RTX 4090", 1, "Gaming computer", null, 32f },
-                    { 2, "Intel Core i5", 2, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, "Office computer", null, 8f },
-                    { 3, "Intel core i7", 3, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "ASUS RADEON HD 7790", 3, "School computer", null, 8f }
+                    { 1, "Intel Core i9-14900K", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "GeForce RTX 4090", 1, "Gaming computer", 1, null, 32f },
+                    { 2, "Intel Core i5", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, 2, "Office computer", 1, null, 8f },
+                    { 3, "Intel core i7", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "ASUS RADEON HD 7790", 3, "School computer", 1, null, 8f }
                 });
 
             migrationBuilder.InsertData(
@@ -425,24 +363,19 @@ namespace Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_computers_ConfigurationId",
-                table: "computers",
-                column: "ConfigurationId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_computers_ManufacturerId",
                 table: "computers",
                 column: "ManufacturerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_computers_OperatingSystemId",
+                table: "computers",
+                column: "OperatingSystemId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_contacts_OrganizationId",
                 table: "contacts",
                 column: "OrganizationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SoftwareConfigurationApplicationEntity_ConfigurationId",
-                table: "SoftwareConfigurationApplicationEntity",
-                column: "ConfigurationId");
         }
 
         /// <inheritdoc />
@@ -470,25 +403,19 @@ namespace Data.Migrations
                 name: "contacts");
 
             migrationBuilder.DropTable(
-                name: "SoftwareConfigurationApplicationEntity");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
+                name: "OperatingSystems");
+
+            migrationBuilder.DropTable(
                 name: "manufacturers");
 
             migrationBuilder.DropTable(
                 name: "organizations");
-
-            migrationBuilder.DropTable(
-                name: "applications");
-
-            migrationBuilder.DropTable(
-                name: "software_configurations");
         }
     }
 }

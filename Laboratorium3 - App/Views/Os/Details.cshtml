@@ -1,0 +1,19 @@
+﻿@using Data.Entities;
+@model OperatingSystemEntity
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h1>Szczegóły</h1>
+
+<h2>@Html.DisplayNameFor(_ => Model.Name)</h2>
+<p>@Model.Name</p>
+
+<h2>@Html.DisplayNameFor(_ => Model.Version)</h2>
+<p>@Model.Version</p>
+
+<h2>@Html.DisplayNameFor(_ => Model.ReleaseYear)</h2>
+<p>@Model.ReleaseYear</p>
+
+<a class="btn btn-primary" asp-action="Index">Wróć</a>

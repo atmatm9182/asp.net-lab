@@ -32,9 +32,15 @@
     </div>
     <div class="mb-3">
         <label asp-for="ManufacturerId"></label>
-        <input type="text" id="filter"/>
+        <input type="text" id="mfilter"/>
         <select class="form-control" id="ManufacturerId"></select>
         <a asp-controller="Manufacturer" asp-action="Create">Dodaj nowego producenta</a>
+    </div>
+    <div class="mb-3">
+        <label asp-for="OperatingSystemId"></label>
+        <input type="text" id="ofilter"/>
+        <select class="form-control" id="OperatingSystemId"></select>
+        <a asp-controller="OperatingSystem" asp-action="Create">Dodaj nowego producenta</a>
     </div>
     <div class="mb-3">
         <button class="btn btn-primary" type="submit">Utworz</button>
@@ -44,18 +50,36 @@
 @section Scripts
 {
     <script>
-        const filter = document.getElementById('filter')
-        const select = document.getElementById('ManufacturerId')
+        const mfilter = document.getElementById('mfilter')
+        const mselect = document.getElementById('ManufacturerId')
         
-        filter.onchange = function () {
-            fetch(`/api/manufacturers/?q=${filter.value}`)
+        mfilter.onchange = function () {
+            mselect.innerHTML = ""
+            fetch(`/api/manufacturers/?q=${mfilter.value}`)
                 .then(res => res.json())
                 .then(json => {
                     for (const m of json) {
                         const opt = document.createElement('option')
                         opt.setAttribute('value', m.id)
                         opt.innerText = m.name
-                        select.appendChild(opt)
+                        mselect.appendChild(opt)
+                    }
+            })
+        }
+
+        const ofilter = document.getElementById('ofilter')
+        const oselect = document.getElementById('OperatingSystemId')
+        
+        ofilter.onchange = function () {
+            oselect.innerHTML = ""
+            fetch(`/api/operatingSystems/?q=${ofilter.value}`)
+                .then(res => res.json())
+                .then(json => {
+                    for (const o of json) {
+                        const opt = document.createElement('option')
+                        opt.setAttribute('value', o.id)
+                        opt.innerText = o.name
+                        oselect.appendChild(opt)
                     }
             })
         }

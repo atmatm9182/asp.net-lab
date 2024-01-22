@@ -28,7 +28,11 @@ public class MemoryComputerService : IComputerService
 
     public Computer? FindById(int id)
     {
-        return _computers[id];
+        if (_computers.TryGetValue(id, out var computer))
+        {
+            return computer;
+        }
+        return null;
     }
 
     public List<Computer> FindAll()

@@ -16,6 +16,7 @@ public static class ComputerMapper
             ProductionDate = computerEntity.ProductionDate,
             GPU = computerEntity.GPU,
             RAM = computerEntity.RAM,
+            OperatingSystemId = computerEntity.OperatingSystemId,
         };
     }
 
@@ -31,6 +32,7 @@ public static class ComputerMapper
             GPU = computer.GPU,
             RAM = computer.RAM,
             Name = computer.Name,
+            OperatingSystemId = computer.OperatingSystemId,
         };
     }
 }
